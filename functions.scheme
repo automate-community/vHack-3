@@ -1,0 +1,34 @@
+| FUNCTIONS
+  |_> _register.py
+     |_> checkRegisterByName
+      ==> Checks if Name doesn`t exists
+
+     |_> register
+      ==> Register a new user
+
+  |_> _login.py
+     |_> login
+      ==> Login with token and password
+
+  |_> _users.py
+     |_> getUsersByQuery
+      ==> Interact with database
+
+     |_> getUsersCoinsByID
+      ==> Get user coins by ID
+
+     |_> getUsersForAttack
+      ==> Returns users list with attack data
+
+  |_> _attack.py
+     |_> attack
+      ==> attack users with objectiveID and token
+
+     |_> checkIfActiveShieldByID
+      ==> Returns if active shield
+
+     |_> createShield
+      ==> Creates shield after attack
+
+     |_> getShieldInactiveTimeByID
+      ==> Returns time when shield disables by ID

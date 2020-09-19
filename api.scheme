@@ -1,0 +1,40 @@
+| DOMAIN ADDR => https://sertor-rpi.ddns.net/ ( NOT OFFICIAL )
+  |_> GAME URL'S
+     |_> / [ GET ] ( Returns Game Info )
+          UTILITY
+      ==> Returns Game Info
+
+  |_> USER PRIVATE URL'S
+     |_> /register [ POST ] ( Register users )
+          KEY --- VALUE
+      ==> username --- "username to register"
+      ==> password --- "password to register" (NOT ENCODED SS)
+      ==> mail --- "mail to register"
+
+      ==> Returns Dumped Array (completed: bool, reason: list) -- reason only if completed = False
+
+     |_> /register/check [ POST ] ( Check registered users )
+          KEY --- VALUE
+      ==> username --- "username to check register"
+
+      ==> Returns Dumped Array (completed: bool, reason: list) -- reason only if completed = False
+
+     |_> /login [ POST ] ( Login with token and password )
+          KEY --- VALUE
+      ==> token --- "user saved token" ( GIVEN ON REGISTER, CAN'T REDEEM IT )
+      ==> password --- "user saved password"
+
+      ==> Returns Dumped Array (completed: bool, reason: list) -- reason only if completed = False
+
+  |_> GAME URL'S
+    |_> /attack [ POST, GET ] ( Attack method )
+     |_> POST METHOD
+          KEY --- VALUE
+      ==> userTK --- "user saved token"
+      ==> objectiveID --- "objectiveID"
+
+      ==> Returns Dumped Array (completed: bool, reason: list) -- reason only if completed = False
+
+     |_> GET METHOD
+          UTILITY
+      ==> Returns Dict with attack users data

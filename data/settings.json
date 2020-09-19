@@ -1,0 +1,9 @@
+{
+  "SERVER_ADDR": "192.168.1.50",
+  "SERVER_PORT": 999,
+  "SERVER_PORT_DEBUG": 888,
+  "SERVER_ADDR_DEBUG": "192.168.1.86",
+  "CODE_VERSION": 1,
+  "AUTHOR": "SerTor Dev.",
+  "HOST": "rpi3"
+}

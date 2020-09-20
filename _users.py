@@ -20,25 +20,3 @@ def getUsersByQuery(query: str = None):
     returnUsersArray = list()
     for user in CURSOR.execute(query): returnUsersArray.append(user)
     return True, returnUsersArray
-
-
-def getUsersForAttack():
-    """
-    :return: (completed: bool, users: dict)
-    """
-    from _attack import getShieldInactiveTimeByID, checkIfActiveShieldByID
-
-    returnDictionary = dict()
-    for user in getUsersByQuery("SELECT ID_,username,shield,coins,validated,diamonds FROM users")[1]:
-        if user[4] == 1:
-            returnDictionary[user[0]] = {
-                "ID_": user[0],  # USER ID INDEX
-                "username": user[1],  # USER NAME INDEX
-                "shield": user[2],  # USER SHIELD INDEX
-                "shield_inactive": "-".join(getShieldInactiveTimeByID(user[0])[1]),  # USER SHIELD INACTIVE TIME
-                "can_attack": not checkIfActiveShieldByID(user[0]),  # USER SHIELD ACTIVE
-                "coins": user[3],  # USER COINS INDEX
-                "diamonds": user[-1]  # USER DIAMONDS INDEX
-            }
-
-    return True, returnDictionary

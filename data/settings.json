@@ -3,7 +3,21 @@
   "SERVER_PORT": 999,
   "SERVER_PORT_DEBUG": 888,
   "SERVER_ADDR_DEBUG": "192.168.1.86",
-  "CODE_VERSION": 1,
+  "CODE_VERSION": 2,
   "AUTHOR": "SerTor Dev.",
-  "HOST": "rpi3"
+  "HOST": "rpi3",
+  "MENU.MAIN": [
+    "Attack Users",
+    "Shop",
+    "Account Settings"
+  ],
+  "MENU.MAIN.MOD": [
+    "Attack Users",
+    "Shop",
+    "Account Settings",
+    "Server Settings"
+  ],
+  "ABILITIES": {
+    "defense": 2
+  }
 }

@@ -1,7 +1,6 @@
 from sys import argv
 
-from _flaskserver import SERVER
-from _settings import SETTINGS
+from _flaskserver import SERVER, SETTINGS
 
 if __name__ == '__main__':
     if not len(argv) > 1: argv.append("_")

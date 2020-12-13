@@ -36,6 +36,14 @@
      |_> /menu.<menu>
           <menu> = menu name
 
+          SPECIAL MENUS
+            ==> .shop [ POST ] --- request.form["userTK"] ( GETS UNIQUE USER SHOP )
+
+          MENUS LIST
+            ==> .main
+            ==> .main.mod ( MOD VERSION )
+
+
       ==> Returns Dumped Array (menu: list)
 
 

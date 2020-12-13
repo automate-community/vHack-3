@@ -2,10 +2,10 @@ from json import dumps
 
 from flask import Flask, request, render_template
 
+from _attack import getAttackList
 from _login import login
 from _register import register, checkRegisterByName
 from _settings import SETTINGS
-from _attack import getAttackList
 
 SERVER = Flask(__name__)
 
@@ -51,6 +51,10 @@ def serverShop():
         return dumps(buy(request.form["userTK"], request.form["abilityNM"]))
 
 
-@SERVER.route("/menu.<menu>")
+@SERVER.route("/menu.<menu>", methods=["POST", "GET"])
 def serverMenus(menu: str):
+    if request.method == "POST" and menu.lower() == "shop":
+        from _shop import getUserAbilityMenuByTK
+        return dumps(getUserAbilityMenuByTK(request.form["userTK"]))
+
     return dumps(SETTINGS["MENU.{0}".format(menu.upper())] if "MENU.{0}".format(menu.upper()) in SETTINGS else ["Error"])

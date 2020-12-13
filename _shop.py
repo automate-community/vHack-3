@@ -38,3 +38,23 @@ def getUserAbilityPriceByTK(userTK: str = None, abilityNM: str = None):
     data = getUsersByQuery("SELECT {1} FROM users WHERE token='{0}'".format(userTK, abilityNM))[1][0]
 
     return True, data[0] * SETTINGS["ABILITIES"][abilityNM]
+
+
+def getUserAbilityMenuByTK(userTK: str = None):
+    from _settings import SETTINGS
+    from _users import getUsersByQuery
+
+    returnMenu = list()
+    replaceData = {
+        ".defenseLVL": getUsersByQuery("SELECT defense FROM users WHERE token='{0}'".format(userTK))[1][0][0],
+        ".defensePRICE": getUserAbilityPriceByTK(userTK, "defense")[1],
+        ".attackLVL": "NONE",
+        ".attackPRICE": "NONE"
+    }
+    for menu in SETTINGS["ABILITIES.MENU"]:
+        for key, val in replaceData.items():
+            menu = menu.replace(key, str(val))
+
+        returnMenu.append(menu)
+
+    return True, returnMenu

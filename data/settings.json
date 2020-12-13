@@ -19,5 +19,9 @@
   ],
   "ABILITIES": {
     "defense": 2
-  }
+  },
+  "ABILITIES.MENU": [
+    "Defense LVL: .defenseLVL PRICE: .defensePRICE",
+    "Attack LVL: .attackLVL PRICE: .attackPRICE"
+  ]
 }
